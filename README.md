@@ -147,7 +147,15 @@ We have provided test data for all the resources.
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. The core features of Node.js and Express and why they are useful.
-1. Understand and explain the use of Middleware.
-1. The basic principles of the REST architectural style.
-1. Understand and explain the use of Express Routers.
-1. Describe tooling used to manually test the correctness of an API.
+  - The core features of Node.js are: it uses JSON, it uses JavaScript, it's single-threaded, it's asynchronous, and it gives you access to the npm repository.
+  These are useful features are useful because they let us minimize context-switching, remove complexity of handling multiple threads, and allow us to take full advantage of the processor.
+  - The core features of Express are: it's a JS framework that sits atop NodeJS and it adds extra functionality.
+  These are useful features are useful because they let us build web apps, server SPAs, build RESTful web services, serve static content, and power real-time applications.
+2. Understand and explain the use of Middleware.
+  - Middleware is used to make code more DRY by taking repeating aspects and putting them in their own file where they can be called upon when needed.
+3. The basic principles of the REST architectural style.
+  - The basic principles of the REST style are: everything is a resource, each resource is accessible via unique URL, resources canhave multiple representations, commincation happens over a stateless protocol (HTTP), and resource management happens via HTTP methods.
+4. Understand and explain the use of Express Routers.
+  - Routers are used to keep code clean and uncluttered. They group together all the requests for a simialr URL.
+5. Describe tooling used to manually test the correctness of an API.
+  - When manually testing APIs you can use HTTPie or Postman. Both of these require you to manually send requests with the required information and will either return an error or the desired content.
