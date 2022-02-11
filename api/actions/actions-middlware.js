@@ -17,6 +17,19 @@ const validateActionId = (req, res, next) => {
         });
 };
 
+const validateAction = (req, res, next) => {
+    const { project_id, description, notes, completed } = req.body;
+
+    if (project_id === undefined || description === undefined || notes === undefined || completed === undefined) {
+        res.status(400).json({ message: 'Description and notes are required fields' });
+    } else if (description.length > 128) {
+        res.status(400).json({ message: 'Description length cannot exceed 128 characters' });
+    } else {
+        next();
+    }
+};
+
 module.exports = {
     validateActionId,
+    validateAction,
 };
