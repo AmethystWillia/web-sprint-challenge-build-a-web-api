@@ -17,6 +17,17 @@ const validateProjectId = (req, res, next) => {
         })
 };
 
+const validateProject = (req, res, next) => {
+    const { name, description } = req.body;
+
+    if (name === null || name === undefined || description === null || description === undefined) {
+        res.status(400).json({ message: 'Name and description are required' });
+    } else {
+        next();
+    }
+};
+
 module.exports = {
     validateProjectId,
+    validateProject,
 };
