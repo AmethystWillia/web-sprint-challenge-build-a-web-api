@@ -29,4 +29,16 @@ router.post('/', validateAction, (req, res, next) => {
         });
 });
 
+router.put('/:id', validateActionId, validateAction, (req, res, next) => {
+    const { id } = req.params;
+
+    Actions.update(id, req.body)
+        .then(action => {
+            res.status(200).json(action);
+        })
+        .catch(err => {
+            next(err);
+        });
+});
+
 module.exports = router;
