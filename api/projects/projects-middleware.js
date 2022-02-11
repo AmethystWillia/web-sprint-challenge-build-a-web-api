@@ -18,9 +18,9 @@ const validateProjectId = (req, res, next) => {
 };
 
 const validateProject = (req, res, next) => {
-    const { name, description } = req.body;
+    const { name, description, completed } = req.body;
 
-    if (name === null || name === undefined || description === null || description === undefined) {
+    if (name === undefined || description === undefined || completed === undefined) {
         res.status(400).json({ message: 'Name and description are required' });
     } else {
         next();

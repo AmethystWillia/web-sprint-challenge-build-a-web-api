@@ -29,4 +29,16 @@ router.post('/', validateProject, (req, res, next) => {
         });
 });
 
+router.put('/:id', validateProjectId, validateProject, (req, res, next) => {
+    const { id } = req.params;
+
+    Projects.update(id, req.body)
+        .then(project => {
+            res.status(200).json(project);
+        })
+        .catch(err => {
+            next(err);
+        })
+});
+
 module.exports = router;
