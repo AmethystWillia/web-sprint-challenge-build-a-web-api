@@ -41,4 +41,17 @@ router.put('/:id', validateProjectId, validateProject, (req, res, next) => {
         })
 });
 
+router.delete('/:id', validateProjectId, (req, res, next) => {
+    const { id } = req.params;
+
+    Projects.get(id)
+        .then(project => {
+            res.status(200).json(project);
+            return Projects.remove(id);
+        })
+        .catch(err => {
+            next(err);
+        });
+});
+
 module.exports = router;
